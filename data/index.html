@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jadsa Tech | led Control</title>
+</head>
+
+<body>
+  
+  <div stile ="text-aling: center;">
+    <h1>ESP32 Control Panel</h1>
+
+    <h3>Led</h3>
+    <button onclick="turnOn()">&nbsp;On&nbsp;</button>
+    <button onclick="turnOff()">&nbsp;Off&nbsp;</button>
+ </div>
+</body>
+ <script>
+  let socketConnetion = new WebSocket('ws://' + location.hostname + ':81/');
+
+  const turnOn = () => socketConnetion.send("LedOn");
+  const turnOff = () => socketConnetion.send("LedOff");
+ </script>
+
+</html>
